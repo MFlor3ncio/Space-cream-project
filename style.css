@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+
+}
+
+:root{
+
+  font-size: 62.5%;
+
+  /* Cores */
+
+  --background-body:hsl(233, 100%, 97%);
+  --backgound-header: hsl(218, 17%, 62%);
+  --background-h1: hsl(275, 18%, 79%);
+  --background-h2: hsl(312, 91%, 96%);
+  --font-color-h1: hsl(0, 0%, 100%);
+  --font-color-p-1: hsl(274, 84%, 12%);
+  --font-color-p: hsl(0, 0%, 100%);
+  --font-color-span-footer: hsl(232, 17%, 35%);
+
+  /*font-family: 'Roboto', sans-serif;*/
+  
+}
+
+
+body{
+  font-family: 'Staatliches', cursive;  
+  background: var(--background-main);
+}
+
+header{
+  display: grid;
+  background: var(--backgound-header);
+
+  margin-bottom: 1.4rem;
+}
+
+.logo{
+  margin: 3.2rem auto;
+}
+
+h1{
+  font-weight: 400;
+  font-size: 4rem;
+
+  background: var(--background-h1);
+  color: var(--font-color-h1);
+
+  text-align: center;
+
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+  padding: 0.8rem 0;
+  margin-bottom: 2.9rem ;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  padding: 1.8rem 3.2rem 6rem;
+}
+
+.text{
+  text-align: center;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2rem;
+
+  color: var(--font-color-p-1);
+  letter-spacing: 0.5rem;
+
+  margin-bottom: 6.4rem;
+
+  width: 31.5rem;
+}
+
+.cards{
+  display: grid;
+  gap: 3.2rem;
+}
+
+.card{
+  position: relative;
+}
+
+.card img{
+  transition: transform 200ms;
+  animation: downtop 700ms;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.card span{
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3.4rem;
+
+  color: var(--font-color-span-footer);
+  background: var(--background-h2);
+
+  border-radius: 2rem;
+
+  padding: 0 2.4rem;
+  animation: topdown 700ms;
+}
+
+footer{
+  display: none;
+}
+
+#img-extra{
+  display: none;
+}
+
+.text-desk{
+  display: none;
+}
+
+.logo-desk{
+  display: none;
+}
+
+/* Animações  */
+
+@keyframes topdown{
+  0%{
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop{
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  0%{
+    opacity: 0;
+    transform: translateY(25px);
+  }
+}
+
+/* @Media */
+
+
+@media (min-width: 900px){
+
+  .logo{
+    display: none;
+  }
+
+  .logo-desk{
+    display: flex;
+    margin: 3.2rem auto;
+  }
+  
+  .page{
+    display: flex;
+  }
+
+  header{
+    display: flex;
+    flex-direction: column;
+    width: 37.7rem;
+    height: 100vh;
+    position: fixed;
+    margin-bottom: 0;
+  }
+
+  .logo{
+    width: 21.4rem;
+  }
+
+  .cards{
+    margin-top: 3rem;
+    margin-left: 42.7rem
+  }
+
+  .text-desk{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    position: absolute;
+    top: 33.3rem;
+    left: 1.5rem;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 2rem;
+
+    color: var(--font-color-p);
+
+    width: 34.5rem;
+  }
+
+  .text{
+    display: none;
+  }
+
+  footer{
+    display: flex;
+    
+    margin-left: 42.7rem;
+    margin-top: 3rem;
+  }
+
+  footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    color: var(--font-color-span-footer);
+
+  }
+
+  footer a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    color: var(--font-color-span-footer);
+
+    text-decoration: none;
+    padding-left: 0.4rem;
+  }
+
+}
+
+@media (min-width: 1120px){
+
+  .cards{
+    grid-template-areas: 
+    'A B'
+    'C B'
+    'C D';
+  }
+
+  .card:nth-child(1){
+    grid-area: A;
+  }
+
+  .card:nth-child(2){
+    grid-area: B;
+  }
+
+  .card:nth-child(4){
+    grid-area: C;
+  }
+
+  .card:nth-child(5){
+    grid-area: D;
+  }
+
+}
+
+@media (min-width:1440px){
+
+  #img-extra{
+    display: flex;
+  }
+  
+  .cards{
+
+    margin-left: 36.7rem;
+    grid-template-areas: 
+    'A B C'
+    'D B E'
+    'D F E';
+  }
+
+  .card:nth-child(1){
+    grid-area: A;
+  }
+
+  .card:nth-child(2){
+    grid-area: B;
+  }
+
+  .card:nth-child(3){
+    grid-area: C;
+  }
+
+  .card:nth-child(4){
+    grid-area: D;
+  }
+
+
+  .card:nth-child(5){
+    grid-area: F;
+  }
+
+  .card:nth-child(6){
+    grid-area: E;
+  }
+}
